@@ -5,6 +5,7 @@
 .numbers-holder{
     text-align: center;
     background-color: black;
+    color: red;
 }
 .number-button{
     width: 45px;
