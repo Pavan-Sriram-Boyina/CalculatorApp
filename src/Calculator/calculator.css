@@ -1,0 +1,29 @@
+.calculator-holder{
+    text-align: center;
+    
+}
+.numbers-holder{
+    
+}
+.number-button{
+    width: 45px;
+    height: 35px;
+    margin: 2px;
+    background-color: rgb(246, 236, 236);
+    border: 0px;
+    border-radius: 3px;
+}
+
+.value-holder{
+    border: 3px solid;
+    min-width: 160px;
+    width: auto;
+    border-color: black;
+    background-color: white;
+    color: black;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    
+}
+
