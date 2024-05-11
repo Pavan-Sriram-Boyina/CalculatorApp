@@ -9,13 +9,13 @@ export default function CalculatorApp() {
   function valueOfCalculator(num) {
     setExpression((prevState) => prevState + num);
   }
-  function singleValueRemover(){
-    let stringValue = [...expression]
-    stringValue.pop()
-    setExpression(stringValue.join(""))
-    console.log(stringValue)
+  function singleValueRemover() {
+    let stringValue = [...expression];
+    stringValue.pop();
+    setExpression(stringValue.join(""));
+    console.log(stringValue);
   }
-   function removeValues() {
+  function removeValues() {
     setExpression("");
     setSolution(null);
     setTernary(true);
@@ -35,7 +35,9 @@ export default function CalculatorApp() {
     <div className="calculator-holder">
       {ternary ? (
         <div className="value-holder">
-          <p>Solving:{expression}</p>
+          <div className="solution-holder">
+            <p>Solving:{expression}</p>
+          </div>
         </div>
       ) : (
         <div className="value-holder">
@@ -81,21 +83,13 @@ export default function CalculatorApp() {
           );
         })}
       </div>
-      <div>
-      <button className="number-button" onClick={() => valueOfCalculator(".")}>
-        .
-      </button>
-      <button className="number-button" onClick={() => singleValueRemover()}>
-        Delete
-      </button>
-      </div>
 
       <div>
         {["+", "-", "*", "/"].map((operator) => {
           return (
             <button
               key={operator}
-              className="number-button"
+              className="number-symbols"
               onClick={() => valueOfCalculator(operator)}
             >
               {operator}
@@ -103,17 +97,35 @@ export default function CalculatorApp() {
           );
         })}
       </div>
-      <div>
-        <button className="number-button" onClick={() => solutionCalculator()}>
-          =
-        </button>
+      <div className="solution-container">
+        <div>
+          <button
+            className="number-solution"
+            onClick={() => valueOfCalculator(".")}
+          >
+            .
+          </button>
+          <button
+            className="number-solution"
+            onClick={() => singleValueRemover()}
+          >
+            Delete
+          </button>
+        </div>
+        <div>
+          <button
+            className="number-solution"
+            onClick={() => solutionCalculator()}
+          >
+            =
+          </button>
+        </div>
+        <div>
+          <button className="number-solution" onClick={() => removeValues()}>
+            Clear
+          </button>
+        </div>
       </div>
-      <div>
-        <button className="number-button" onClick={() => removeValues()}>
-          Clear
-        </button>
-      </div>
-
     </div>
   );
 }
